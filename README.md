@@ -1,2 +1,3 @@
-# Proyecto_Dise-o_Adaptable
-El proyectico de diseño adaptable
+# Proyecto de Diseño Adaptable
+El proyectico con un diseño adaptable
+

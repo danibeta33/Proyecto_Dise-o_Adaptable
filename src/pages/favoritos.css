@@ -1,0 +1,63 @@
+/* --- Ajustes generales para mejorar la UX de Favoritos --- */
+
+body {
+	background: #e9ecf3;
+}
+
+/* Header y menú */
+header {
+	box-shadow: 0 2px 8px 0 #23263a0a;
+}
+
+/* Input de búsqueda */
+input[type="text"]:focus {
+	outline: 2px solid #23263a;
+	border-color: #23263a;
+	background: #f6f8fc;
+}
+
+/* Cards de favoritos */
+.border-dashed {
+	transition: box-shadow 0.2s;
+}
+.border-dashed:hover {
+	box-shadow: 0 4px 24px 0 #23263a14;
+	border-color: #23263a;
+}
+
+/* Placeholder de imagen */
+.favoritos-img-placeholder {
+	font-size: 2.5rem;
+	color: #bfc5d2;
+	opacity: 0.7;
+}
+
+/* Botones principales */
+button {
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 8px 0 #23263a0a;
+}
+button:hover {
+	filter: brightness(0.95);
+	box-shadow: 0 4px 16px 0 #23263a22;
+}
+
+/* Botones inferiores */
+.mt-auto button {
+	font-size: 1.1rem;
+	letter-spacing: 0.5px;
+}
+
+/* Responsive: mejora el padding en pantallas grandes */
+@media (min-width: 768px) {
+	.px-4 {
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+	}
+	.pb-8 {
+		padding-bottom: 3rem !important;
+	}
+	.pt-8 {
+		padding-top: 3rem !important;
+	}
+}
