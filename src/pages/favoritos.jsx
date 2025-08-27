@@ -1,5 +1,6 @@
-
 import './favoritos.css';
+import UNacional from '../imgs/UNacional.jpg';
+import UEafit from '../imgs/UEafit.jpg';
 
 export default function Favoritos() {
 	return (
@@ -38,10 +39,8 @@ export default function Favoritos() {
 			<div className="flex flex-col gap-8 px-4 pb-8">
 				{/* Card 1 */}
 				<div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc]">
-					<div className="flex-shrink-0 flex items-center justify-center w-full md:w-56 h-40 bg-[#f2f4fa] border border-[#23263a] rounded-md">
-						<div className="w-16 h-16 bg-[#e9ecf3] border-2 border-[#bfc5d2] rounded-md flex items-center justify-center">
-							<span className="text-[#bfc5d2] text-3xl">🖼️</span>
-						</div>
+					<div className="flex-shrink-0 w-full md:w-56 h-40 rounded-md">
+						<img src={UNacional} alt="Universidad Nacional de Colombia" className="w-full h-full object-cover rounded-md border border-[#23263a]" />
 					</div>
 					<div className="flex flex-col flex-1 justify-between">
 						<div>
@@ -56,10 +55,8 @@ export default function Favoritos() {
 				</div>
 				{/* Card 2 */}
 				<div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc]">
-					<div className="flex-shrink-0 flex items-center justify-center w-full md:w-56 h-40 bg-[#f2f4fa] border border-[#23263a] rounded-md">
-						<div className="w-16 h-16 bg-[#e9ecf3] border-2 border-[#bfc5d2] rounded-md flex items-center justify-center">
-							<span className="text-[#bfc5d2] text-3xl">🖼️</span>
-						</div>
+					<div className="flex-shrink-0 w-full md:w-56 h-40 rounded-md">
+						<img src={UEafit} alt="Universidad EAFIT" className="w-full h-full object-cover rounded-md border border-[#23263a]" />
 					</div>
 					<div className="flex flex-col flex-1 justify-between">
 						<div>
