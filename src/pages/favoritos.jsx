@@ -1,15 +1,17 @@
 import './favoritos.css';
 import UNacional from '../imgs/UNacional.jpg';
 import UEafit from '../imgs/UEafit.jpg';
+import { useNavigate } from 'react-router-dom';
 
 export default function Favoritos() {
-	return (
-		<div className="min-h-screen bg-white border-4 border-[#393e4c] rounded-xl flex flex-col">
+	const navigate = useNavigate();
+		return (
+			<div className="min-h-screen bg-white border-4 border-[#393e4c] rounded-xl flex flex-col">
 			{/* Header */}
 							<header className="favoritos-header">
   {/* Logo cuadrado */}
   <div className="favoritos-header-col">
-    <div className="favoritos-logo-box"></div>
+					<div className="favoritos-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>Logo</div>
   </div>
   {/* Cuadro central */}
   <div className="favoritos-header-center-col">
@@ -17,15 +19,15 @@ export default function Favoritos() {
   </div>
   {/* Botón menú barra lateral simétrico */}
   <div className="favoritos-header-col">
-    <button className="favoritos-header-menu-btn" style={{ minWidth: 48, maxWidth: 48, padding: 0 }} aria-label="Menú lateral">
-      <svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-    </button>
+		<button className="favoritos-header-menu-btn" style={{ minWidth: 48, maxWidth: 48, padding: 0 }} aria-label="Menú lateral" onClick={() => navigate('/busqueda')}>
+			<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+		</button>
   </div>
 </header>
 
 			{/* Menu */}
 			<div className="w-full bg-[#e9ecf3] flex justify-center items-center py-3 border-b border-[#393e4c]">
-					<button className="favoritos-header-menu-btn">
+				<button className="favoritos-header-menu-btn" onClick={() => navigate('/busqueda')}>
 						<svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
 						<span>Menu</span>
 					</button>
@@ -60,7 +62,7 @@ export default function Favoritos() {
 						</div>
 						<div className="flex gap-4 mt-4">
 							{/* Botones de las tarjetas */}
-							   <button className="btn-principal">Ir a la Página</button>
+							  <button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
 							   <button className="btn-secundario">Eliminar</button>
 						</div>
 					</div>
@@ -77,7 +79,7 @@ export default function Favoritos() {
 						</div>
 						<div className="flex gap-4 mt-4">
 							{/* Botones de las tarjetas */}
-							   <button className="btn-principal">Ir a la Página</button>
+							<button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
 							   <button className="btn-secundario">Eliminar</button>
 						</div>
 					</div>
@@ -87,9 +89,9 @@ export default function Favoritos() {
 			{/* Bottom Buttons */}
 			<div className="flex flex-col md:flex-row justify-center gap-8 mt-auto px-4 pb-8">
 				{/* Botones inferiores */}
-				   <button className="favoritos-bottom-btn">Atras</button>
+				 <button className="favoritos-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
 				   <button className="favoritos-bottom-btn">Añadir</button>
 			</div>
 		</div>
-	);
-}
+			);
+		}

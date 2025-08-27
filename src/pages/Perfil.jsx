@@ -1,27 +1,30 @@
+
 import './Perfil.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Perfil() {
+	const navigate = useNavigate();
 	return (
 		<div className="perfil-main-container">
 			<div className="perfil-content-wrapper">
 				{/* Header */}
-				<header className="perfil-header">
-					<div className="perfil-header-col">
-						<div className="perfil-logo-box"></div>
-					</div>
-					<div className="perfil-header-center-col">
-						<div className="perfil-header-center"></div>
-					</div>
-					<div className="perfil-header-col">
-						<button className="perfil-header-menu-btn" aria-label="Menú lateral">
-							<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-						</button>
-					</div>
-				</header>
+								<header className="perfil-header">
+									<div className="perfil-header-col">
+										<div className="perfil-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}></div>
+									</div>
+									<div className="perfil-header-center-col">
+										<div className="perfil-header-center"></div>
+									</div>
+									<div className="perfil-header-col">
+															<button className="perfil-header-menu-btn" aria-label="Menú lateral" onClick={() => navigate('/busqueda')}>
+																<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+															</button>
+									</div>
+								</header>
 
 				{/* Menu */}
 				<div className="perfil-menu-bar">
-					<button className="perfil-header-menu-btn">
+			<button className="perfil-header-menu-btn" onClick={() => navigate('/busqueda')}>
 						<svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
 						<span>Menu</span>
 					</button>
@@ -55,7 +58,7 @@ export default function Perfil() {
 					{/* Carrusel de favoritos */}
 					<div className="perfil-carousel-row">
 						<button className="perfil-carousel-arrow">&#60;</button>
-						<div className="perfil-carousel-card">
+						<div className="perfil-carousel-card" style={{cursor:'pointer'}} onClick={() => navigate('/favoritos')}>
 							<div className="perfil-carousel-img-placeholder"></div>
 							<div className="perfil-carousel-label">Universidades</div>
 						</div>
@@ -67,10 +70,10 @@ export default function Perfil() {
 					</div>
 
 					{/* Botones inferiores */}
-					<div className="perfil-bottom-btn-row">
-						<button className="perfil-bottom-btn perfil-bottom-btn-rosado">Editar</button>
-						<button className="perfil-bottom-btn perfil-bottom-btn-rosado">Atras</button>
-					</div>
+													<div className="perfil-bottom-btn-row">
+														<button className="perfil-bottom-btn perfil-bottom-btn-rosado">Editar</button>
+														<button className="perfil-bottom-btn perfil-bottom-btn-rosado" onClick={() => navigate(-1)}>Atras</button>
+													</div>
 				</div>
 			</div>
 		</div>

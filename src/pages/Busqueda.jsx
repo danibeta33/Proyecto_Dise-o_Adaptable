@@ -4,10 +4,12 @@ import './Busqueda.css';
 import UEafitImg from '../imgs/UEafit.jpg';
 import UNacionalImg from '../imgs/UNacional.jpg';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Busqueda() {
   const [filtros, setFiltros] = useState({ ciudad: false, pais: false, comunicacion: true });
+  const navigate = useNavigate();
 
   const handleFiltroChange = (e) => {
     const { name, checked } = e.target;
@@ -89,8 +91,8 @@ export default function Busqueda() {
               <p className="text-sm text-[#23263a] mt-1">Forma parte de una de las universidades más reconocidas del país. El programa de Psicología de la UNAL te brinda una sólida formación teórica y práctica, con enfoque en investigación y compromiso social.</p>
             </div>
             <div className="flex gap-4 mt-4">
-              <button className="btn-principal">Ir a la Página</button>
-              <button className="btn-secundario">Favoritos</button>
+              <button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
+              <button className="btn-secundario" onClick={() => navigate('/favoritos')}>Favoritos</button>
               <button className="btn-secundario">Guardar</button>
             </div>
           </div>
@@ -106,8 +108,8 @@ export default function Busqueda() {
               <p className="text-sm text-[#23263a] mt-1">Desarrolla tu creatividad en el mundo digital aprendiendo diseño interactivo, animación y programación. Con docentes expertos y acceso a laboratorios de innovación, podrás trabajar en videojuegos, aplicaciones y experiencias inmersivas</p>
             </div>
             <div className="flex gap-4 mt-4">
-              <button className="btn-principal">Ir a la Página</button>
-              <button className="btn-secundario">Favoritos</button>
+              <button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
+              <button className="btn-secundario" onClick={() => navigate('/favoritos')}>Favoritos</button>
               <button className="btn-secundario">Guardar</button>
             </div>
           </div>
@@ -121,7 +123,7 @@ export default function Busqueda() {
 
       {/* Botones inferiores */}
       <div className="busqueda-bottom-btn-row">
-        <button className="favoritos-bottom-btn">Atras</button>
+  <button className="favoritos-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
         <button className="favoritos-bottom-btn">Restablecer</button>
       </div>
     </div>

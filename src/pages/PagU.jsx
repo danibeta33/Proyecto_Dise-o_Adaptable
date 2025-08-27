@@ -1,28 +1,30 @@
 
 import './PagU.css';
 import UNacionalImg from '../imgs/UNacional.jpg';
+import { useNavigate } from 'react-router-dom';
 
 export default function PagU() {
+	const navigate = useNavigate();
 	return (
 		<div className="pagu-main-container">
 			{/* Header */}
 			<header className="pagu-header">
-				<div className="pagu-header-col pagu-header-col-left">
-					<div className="pagu-logo-box">Logo</div>
-				</div>
+								<div className="pagu-header-col pagu-header-col-left">
+									<div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>Logo</div>
+								</div>
 				<div className="pagu-header-center-col">
 					<div className="pagu-header-center"></div>
 				</div>
 				<div className="pagu-header-col pagu-header-col-right">
-					<button className="pagu-header-menu-btn" aria-label="Menú lateral">
-						<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-					</button>
+								<button className="pagu-header-menu-btn" aria-label="Menú lateral" onClick={() => navigate('/busqueda')}>
+									<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+								</button>
 				</div>
 			</header>
 
 			{/* Menu */}
 			<div className="pagu-menu-bar">
-				<button className="pagu-header-menu-btn">
+				<button className="pagu-header-menu-btn" onClick={() => navigate('/busqueda')}>
 					<svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
 					<span>Menu</span>
 				</button>
@@ -94,14 +96,14 @@ export default function PagU() {
 					</span>
 				</div>
 				<div className="pagu-coment-btn-row">
-					<button className="pagu-news-btn pagu-news-btn-main">Comentarios</button>
+								<button className="pagu-news-btn pagu-news-btn-main" onClick={() => navigate('/comentarios')}>Comentarios</button>
 				</div>
 			</div>
 
 			{/* Botones inferiores */}
 			<div className="pagu-bottom-btn-row">
-				<button className="pagu-bottom-btn">Atras</button>
-				<button className="pagu-bottom-btn pagu-bottom-btn-rosado">Añadir a Fav</button>
+					<button className="pagu-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
+					<button className="pagu-bottom-btn pagu-bottom-btn-rosado" onClick={() => navigate('/favoritos')}>Añadir a Fav</button>
 			</div>
 		</div>
 	);

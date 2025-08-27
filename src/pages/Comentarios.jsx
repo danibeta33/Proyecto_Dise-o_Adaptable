@@ -1,27 +1,30 @@
 
+
 import './Comentarios.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Comentarios() {
+	const navigate = useNavigate();
 	return (
 		<div className="coment-main-container">
 			{/* Header */}
 			<header className="coment-header">
 				<div className="coment-header-col coment-header-col-left">
-					<div className="coment-logo-box">Logo</div>
+						<div className="coment-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>Logo</div>
 				</div>
 				<div className="coment-header-center-col">
 					<div className="coment-header-center"></div>
 				</div>
 				<div className="coment-header-col coment-header-col-right">
-					<button className="coment-header-menu-btn" aria-label="Menú lateral">
-						<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-					</button>
+								<button className="coment-header-menu-btn" aria-label="Menú lateral" onClick={() => navigate('/busqueda')}>
+									<svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+								</button>
 				</div>
 			</header>
 
 			{/* Menu */}
 			<div className="coment-menu-bar">
-				<button className="coment-header-menu-btn">
+				<button className="coment-header-menu-btn" onClick={() => navigate('/busqueda')}>
 					<svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
 					<span>Menu</span>
 				</button>
@@ -84,8 +87,8 @@ export default function Comentarios() {
 
 			{/* Botones inferiores */}
 			<div className="coment-bottom-btn-row">
-				<button className="coment-bottom-btn">Atras</button>
-				<button className="coment-bottom-btn coment-bottom-btn-rosado">Pag Universidad</button>
+			<button className="coment-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
+			<button className="coment-bottom-btn coment-bottom-btn-rosado" onClick={() => navigate('/pagu')}>Pag Universidad</button>
 			</div>
 		</div>
 	);
