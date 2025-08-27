@@ -1,0 +1,298 @@
+/* --- Layout general de la página de búsqueda --- */
+.busqueda-main-container {
+	min-height: 100vh;
+	width: 100vw;
+	background: #e9ecf3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	box-sizing: border-box;
+}
+
+/* Barra de búsqueda y filtros */
+.busqueda-bar-section {
+	width: 100%;
+	max-width: 1100px;
+	margin: 2rem auto 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 2rem;
+}
+.busqueda-label {
+	font-weight: 600;
+	color: #23263a;
+	margin-bottom: 0.5rem;
+	font-size: 1.1rem;
+}
+.busqueda-bar-row {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+.busqueda-filtros-row {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	margin-bottom: 1.5rem;
+}
+.busqueda-checkbox {
+	font-size: 1rem;
+	color: #23263a;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: 500;
+}
+
+/* Resultados */
+.busqueda-resultados-list {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto 2rem auto;
+	padding: 0 2rem;
+}
+.busqueda-img-placeholder {
+	background: #f2f4fa;
+	border: 1.5px solid #23263a;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Mensaje de no resultados */
+.busqueda-no-resultados {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2.5rem 0 0 0;
+	color: #23263a;
+	font-size: 1rem;
+	font-weight: 600;
+}
+.busqueda-no-resultados-bar {
+	width: 120px;
+	height: 6px;
+	background: #23263a;
+	border-radius: 4px;
+	margin-top: 0.5rem;
+}
+
+/* Botones inferiores */
+.busqueda-bottom-btn-row {
+	display: flex;
+	justify-content: center;
+	gap: 2.5rem;
+	margin-bottom: 2.5rem;
+	width: 100vw;
+}
+
+/* Header Busqueda (igual a Perfil) */
+
+.busqueda-header {
+	width: 100vw;
+	min-width: 100vw;
+	max-width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 0;
+	border-bottom: 2px solid #393e4c;
+	background: #fff;
+	box-sizing: border-box;
+}
+.busqueda-header-col {
+	flex: 0 0 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.busqueda-header-col-left {
+	justify-content: flex-start;
+	padding-left: 2vw;
+}
+.busqueda-header-col-right {
+	justify-content: flex-end;
+	padding-right: 2vw;
+}
+.busqueda-header-center-col {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.busqueda-logo-box {
+	width: 48px;
+	height: 48px;
+	background: #fff;
+	border: 3px solid #23263a;
+	border-radius: 8px;
+}
+.busqueda-header-center {
+	background: #23263a;
+	height: 56px;
+	min-width: 224px;
+	max-width: 320px;
+	width: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+}
+.busqueda-header-menu-btn {
+	background: #23263a;
+	border: none;
+	border-radius: 8px;
+	min-width: 48px;
+	max-width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.2s;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 600;
+	padding: 0;
+	cursor: pointer;
+}
+.busqueda-header-menu-btn svg {
+	width: 28px;
+	height: 28px;
+}
+.busqueda-header-menu-btn:hover {
+	background: #1a1d2a;
+}
+
+/* Menu bar Busqueda (igual a Perfil) */
+.busqueda-menu-bar {
+	width: 100%;
+	background: #e9ecf3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
+	border-bottom: 2px solid #393e4c;
+}
+.busqueda-menu-bar .busqueda-header-menu-btn {
+	min-width: 120px;
+	max-width: 220px;
+	height: 48px;
+	gap: 12px;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 600;
+	padding: 0 24px;
+}
+
+/* Botón principal (azul oscuro) */
+.btn-principal {
+	background: #23263a;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 8px;
+	padding: 0.5rem 1.5rem;
+}
+.btn-principal:hover {
+	filter: brightness(0.95);
+}
+
+/* Botón secundario (rosado) */
+.btn-secundario {
+	background: #d13c5a;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 8px;
+	padding: 0.5rem 1.5rem;
+}
+.btn-secundario:hover {
+	filter: brightness(0.95);
+}
+
+/* Botones inferiores grandes */
+.favoritos-bottom-btn {
+	background: #d13c5a;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 8px;
+	padding: 1rem 0;
+	font-size: 1.1rem;
+	letter-spacing: 0.5px;
+	min-width: 180px;
+	max-width: 220px;
+	width: 200px;
+	text-align: center;
+	display: inline-block;
+}
+.favoritos-bottom-btn:hover {
+	filter: brightness(0.95);
+}
+/* --- Ajustes generales para mejorar la UX de Favoritos --- */
+
+body {
+	background: #e9ecf3;
+}
+
+/* Header y menú */
+header {
+	box-shadow: 0 2px 8px 0 #23263a0a;
+}
+
+/* Input de búsqueda */
+input[type="text"]:focus {
+	outline: 2px solid #23263a;
+	border-color: #23263a;
+	background: #f6f8fc;
+}
+
+/* Cards de favoritos */
+.border-dashed {
+	transition: box-shadow 0.2s;
+}
+.border-dashed:hover {
+	box-shadow: 0 4px 24px 0 #23263a14;
+	border-color: #23263a;
+}
+
+/* Placeholder de imagen */
+.favoritos-img-placeholder {
+	font-size: 2.5rem;
+	color: #bfc5d2;
+	opacity: 0.7;
+}
+
+/* Botones principales */
+button {
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 8px 0 #23263a0a;
+}
+button:hover {
+	filter: brightness(0.95);
+	box-shadow: 0 4px 16px 0 #23263a22;
+}
+
+/* Botones inferiores */
+.mt-auto button {
+	font-size: 1.1rem;
+	letter-spacing: 0.5px;
+}
+
+/* Responsive: mejora el padding en pantallas grandes */
+@media (min-width: 768px) {
+	.px-4 {
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+	}
+	.pb-8 {
+		padding-bottom: 3rem !important;
+	}
+	.pt-8 {
+		padding-top: 3rem !important;
+	}
+}

@@ -5,9 +5,10 @@ import Home from './pages/home'
 import './index.css';
 import Favoritos from './pages/favoritos'
 import Perfil from './pages/Perfil'
+import Busqueda from './pages/Busqueda'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-        <Perfil />
+        <Busqueda />
   </StrictMode>,
 )
