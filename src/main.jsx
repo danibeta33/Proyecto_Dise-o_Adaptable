@@ -7,9 +7,10 @@ import Favoritos from './pages/favoritos'
 import Perfil from './pages/Perfil'
 import Busqueda from './pages/Busqueda'
 import PagU from './pages/PagU'
+import Comentarios from './pages/Comentarios'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-        <PagU />
+        <Comentarios />
   </StrictMode>,
 )
