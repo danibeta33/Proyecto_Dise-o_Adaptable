@@ -60,6 +60,22 @@
 	align-items: center;
 	justify-content: flex-start;
 	box-sizing: border-box;
+	animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes paguFadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(40px) scale(0.98);
+	}
+	60% {
+		opacity: 1;
+		transform: translateY(-6px) scale(1.02);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
 }
 
 /* Barra de búsqueda y filtros */
@@ -507,6 +523,25 @@
 	border: none;
 	transition: background 0.2s;
 	cursor: pointer;
+}
+
+.coment-bottom-btn-anim {
+	animation: favPulse 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes favPulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px 0 #d13c5a44;
+	}
+	50% {
+		transform: scale(1.13);
+		box-shadow: 0 6px 24px 0 #d13c5a88;
+	}
+	100% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px 0 #d13c5a44;
+	}
 }
 .coment-bottom-btn-rosado {
 	background: #d13c5a;

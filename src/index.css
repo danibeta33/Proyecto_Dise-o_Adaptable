@@ -56,15 +56,108 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Modo oscuro inspirado en los ejemplos visuales */
+.dark-mode, body.dark-mode, #root.dark-mode {
+  background-color: #23283b !important;
+  color: #fff !important;
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6,
+.dark-mode .pagu-title, .dark-mode .pagu-section-title, .dark-mode .coment-title {
+  color: #fff !important;
+}
+.dark-mode p, .dark-mode span, .dark-mode label, .dark-mode .subtitulo, .dark-mode .texto,
+.dark-mode .pagu-desc, .dark-mode .pagu-news-title, .dark-mode .pagu-news-desc,
+.dark-mode .coment-user, .dark-mode .coment-user-desc, .dark-mode .coment-box {
+  color: #fff !important;
+}
+.dark-mode button, .dark-mode .btn-principal, .dark-mode .btn-secundario, .dark-mode .favoritos-bottom-btn, .dark-mode .pagu-bottom-btn, .dark-mode .pagu-news-btn, .dark-mode .coment-bottom-btn {
+  background-color: #d13c5a !important;
+  color: #fff !important;
+  border: none !important;
+  font-size: 1em;
+  box-shadow: 0 2px 8px 0 #23263a0a;
+}
+.dark-mode button:hover, .dark-mode .btn-principal:hover, .dark-mode .btn-secundario:hover, .dark-mode .favoritos-bottom-btn:hover, .dark-mode .pagu-bottom-btn:hover, .dark-mode .pagu-news-btn:hover, .dark-mode .coment-bottom-btn:hover {
+  background-color: #b71c4a !important;
+  color: #fff !important;
+}
+.dark-mode .card, .dark-mode .tarjeta, .dark-mode .comentario, .dark-mode .pagu-coment-box, .dark-mode .coment-box {
+  background-color: #2d3146 !important;
+  color: #fff !important;
+  border: 1px solid #3a3f5c !important;
+}
+.dark-mode .noticia, .dark-mode .pagu-news-card {
+  background-color: #3a3f5c !important;
+  color: #fff !important;
+  border: 1px solid #23283b !important;
+}
+.dark-mode .pagu-news-img-placeholder {
+  background: #2d3146 !important;
+  color: #bfc5d2 !important;
+  border-bottom: 2px solid #23283b !important;
+}
+.dark-mode input, .dark-mode textarea, .dark-mode .favoritos-search-input, .dark-mode .perfil-input, .dark-mode .perfil-desc-textarea {
+  background-color: #23283b !important;
+  color: #fff !important;
+  border: 1px solid #3a3f5c !important;
+}
+.dark-mode a {
+  color: #ff4081 !important;
+}
+.dark-mode .border-dashed {
+  border-color: #3a3f5c !important;
+  background: #2d3146 !important;
+}
+.dark-mode .busqueda-main-container, .dark-mode .perfil-main-container, .dark-mode .coment-main-container, .dark-mode .pagu-main-container {
+  background: #23283b !important;
+}
+.dark-mode .bg-\[\#f6f8fc\], .dark-mode .bg-\[\#e9ecf3\], .dark-mode .bg-white {
+  background: #2d3146 !important;
+}
+.dark-mode .text-\[\#23263a\] {
+  color: #fff !important;
+}
+.dark-mode .border-\[\#23263a\] {
+  border-color: #3a3f5c !important;
+}
+.dark-mode .favoritos-logo-box, .dark-mode .perfil-logo-box, .dark-mode .pagu-logo-box, .dark-mode .coment-logo-box {
+  background: #2d3146 !important;
+  border-color: #3a3f5c !important;
+}
+.dark-mode .favoritos-header, .dark-mode .perfil-header, .dark-mode .pagu-header, .dark-mode .coment-header {
+  background: #2d3146 !important;
+  border-bottom: 2px solid #3a3f5c !important;
+}
+.dark-mode .favoritos-header-center, .dark-mode .perfil-header-center, .dark-mode .pagu-header-center, .dark-mode .coment-header-center {
+  background: #3a3f5c !important;
+}
+.dark-mode .favoritos-search-icon, .dark-mode .favoritos-img-placeholder {
+  background: #3a3f5c !important;
+  color: #bfc5d2 !important;
+}
+.dark-mode .busqueda-no-resultados, .dark-mode .busqueda-no-resultados-bar {
+  color: #fff !important;
+  background: #3a3f5c !important;
+}
+.dark-mode .pagu-chip {
+  background: #2d3146 !important;
+  color: #fff !important;
+  border-color: #3a3f5c !important;
+}
+.dark-mode .pagu-chip.selected, .dark-mode .pagu-chip:hover {
+  background: #d13c5a !important;
+  color: #fff !important;
+  border-color: #d13c5a !important;
+}
+
+/* El modo claro NO se modifica, se mantiene igual que al principio */
+.light-mode {
+  /* No se sobreescribe, se mantiene el diseño original */
+}
+body.dark-mode, #root.dark-mode {
+  background-color: #23283b;
+  color: #e3e6f0;
+}
+body.light-mode, #root.light-mode {
+  /* No se sobreescribe, se mantiene el diseño original */
 }

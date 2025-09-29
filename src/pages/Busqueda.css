@@ -8,6 +8,22 @@
 	align-items: center;
 	justify-content: flex-start;
 	box-sizing: border-box;
+	animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes paguFadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(40px) scale(0.98);
+	}
+	60% {
+		opacity: 1;
+		transform: translateY(-6px) scale(1.02);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
 }
 
 /* Barra de búsqueda y filtros */
@@ -94,30 +110,22 @@
 /* Header Busqueda (igual a Perfil) */
 
 .busqueda-header {
+	background: #fff;
+	border-bottom: 2px solid #393e4c;
+	box-sizing: border-box;
+	padding: 0.5rem 0;
 	width: 100vw;
 	min-width: 100vw;
 	max-width: 100vw;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0.5rem 0;
-	border-bottom: 2px solid #393e4c;
-	background: #fff;
-	box-sizing: border-box;
 }
 .busqueda-header-col {
 	flex: 0 0 140px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-.busqueda-header-col-left {
-	justify-content: flex-start;
-	padding-left: 2vw;
-}
-.busqueda-header-col-right {
-	justify-content: flex-end;
-	padding-right: 2vw;
 }
 .busqueda-header-center-col {
 	flex: 1 1 auto;
@@ -131,6 +139,9 @@
 	background: #fff;
 	border: 3px solid #23263a;
 	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .busqueda-header-center {
 	background: #23263a;
@@ -230,6 +241,25 @@
 	text-align: center;
 	display: inline-block;
 }
+
+.favoritos-bottom-btn-anim {
+	animation: favPulse 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes favPulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px 0 #d13c5a44;
+	}
+	50% {
+		transform: scale(1.13);
+		box-shadow: 0 6px 24px 0 #d13c5a88;
+	}
+	100% {
+		transform: scale(1);
+		box-shadow: 0 2px 8px 0 #d13c5a44;
+	}
+}
 .favoritos-bottom-btn:hover {
 	filter: brightness(0.95);
 }
@@ -295,4 +325,54 @@ button:hover {
 	.pt-8 {
 		padding-top: 3rem !important;
 	}
+}
+
+/* --- Modo oscuro --- */
+body.dark-mode .busqueda-main-container,
+.busqueda-main-container.dark-mode {
+	background: #23283b !important;
+}
+body.dark-mode .busqueda-header,
+.busqueda-header.dark-mode {
+	background: #2d3146 !important;
+	border-bottom: 2px solid #3a3f5c !important;
+}
+body.dark-mode .busqueda-logo-box,
+.busqueda-logo-box.dark-mode {
+	background: #2d3146 !important;
+	border-color: #3a3f5c !important;
+}
+body.dark-mode .busqueda-header-center,
+.busqueda-header-center.dark-mode {
+	background: #3a3f5c !important;
+}
+body.dark-mode .busqueda-header-menu-btn,
+.busqueda-header-menu-btn.dark-mode {
+	background: #23263a !important;
+	color: #fff !important;
+}
+body.dark-mode .favoritos-bottom-btn,
+.favoritos-bottom-btn.dark-mode {
+	font-size: 1.1rem !important;
+	padding: 1rem 0 !important;
+	min-width: 180px !important;
+	max-width: 220px !important;
+	width: 200px !important;
+}
+body.dark-mode .favoritos-bottom-btn:hover,
+.favoritos-bottom-btn.dark-mode:hover {
+	background: #b71c4a !important;
+}
+body.dark-mode .border-dashed,
+.border-dashed.dark-mode {
+	background: #3a3f5c !important;
+	border-color: #3a3f5c !important;
+}
+body.dark-mode .text-\[\#23263a\],
+.text-\[\#23263a\].dark-mode {
+	color: #fff !important;
+}
+body.dark-mode .bg-\[\#f6f8fc\],
+.bg-\[\#f6f8fc\].dark-mode {
+	background: #3a3f5c !important;
 }
