@@ -15,14 +15,39 @@ import DarkModeButton from './components/DarkModeButton';
 function Main() {
   const initializeDarkMode = useDarkModeStore((state) => state.initializeDarkMode);
   const darkMode = useDarkModeStore((state) => state.darkMode);
+  const toggleDarkMode = useDarkModeStore((state) => state.toggleDarkMode);
+
+  // Detectar preferencia del sistema y sincronizar estado inicial
   useEffect(() => {
-    initializeDarkMode();
-  }, [initializeDarkMode]);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('darkMode');
+    if (saved === null) {
+      // Si no hay preferencia guardada, usar la del sistema
+      if (prefersDark && !darkMode) toggleDarkMode();
+      if (!prefersDark && darkMode) toggleDarkMode();
+    } else {
+      initializeDarkMode();
+    }
+    // Listener para cambios en el sistema
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      if (localStorage.getItem('darkMode') === null) {
+        if (e.matches && !darkMode) toggleDarkMode();
+        if (!e.matches && darkMode) toggleDarkMode();
+      }
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [initializeDarkMode, darkMode, toggleDarkMode]);
+
   useEffect(() => {
     document.body.className = darkMode ? 'dark-mode' : 'light-mode';
     const root = document.getElementById('root');
     if (root) root.className = darkMode ? 'dark-mode' : 'light-mode';
+    // Para Tailwind 4: set data-theme
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
+
   return (
     <StrictMode>
       <HashRouter>
