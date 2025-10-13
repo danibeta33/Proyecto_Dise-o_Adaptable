@@ -52,7 +52,7 @@ export default function PagU() {
             <img src={UNacionalImg} alt="Universidad Nacional" className="pagu-img" />
           </div>
           <div className="pagu-desc-block">
-            <h1 className="pagu-title">Universidad Nacional</h1>
+            <h1 className="pagu-title">🎓 Universidad Nacional</h1>
             <p className="pagu-desc">
               La Universidad Nacional de Colombia (UNAL) es la institución pública de educación superior más importante del país, reconocida por su excelencia académica y su liderazgo en investigación. Fundada en 1867, tiene presencia en varias ciudades del país, incluyendo Bogotá, Medellín, Manizales y Palmira, lo que le permite garantizar acceso a educación de calidad en diferentes regiones. Su oferta académica abarca todas las áreas del conocimiento, desde ciencias básicas y sociales hasta ingeniería, artes y salud, formando profesionales comprometidos con el desarrollo del país.<br /><br />
               Además de su papel educativo, la UNAL es un referente en investigación científica, innovación y proyección social, contribuyendo de manera significativa al avance del conocimiento y a la solución de problemáticas nacionales. Es reconocida por su diversidad cultural, su autonomía y su compromiso con la equidad, ofreciendo programas y beneficios que facilitan el acceso a estudiantes de distintos contextos socioeconómicos.
@@ -61,7 +61,7 @@ export default function PagU() {
         </div>
 
         {/* Noticias */}
-        <div className="pagu-section-title">Ultimas Noticias</div>
+  <div className="pagu-section-title">📰 Últimas Noticias</div>
         <div className="pagu-news-row">
           <div className="pagu-news-card">
             <div className="pagu-news-img-placeholder"></div>
@@ -93,7 +93,7 @@ export default function PagU() {
         </div>
 
         {/* Comentarios */}
-        <div className="pagu-section-title pagu-section-title-coment">Comentarios</div>
+  <div className="pagu-section-title pagu-section-title-coment">💬 Comentarios</div>
         <div className="pagu-coment-block">
           <div className="pagu-coment-user">Laura Gómez</div>
           <div className="pagu-coment-user-desc">Estudiante de Arquitectura</div>

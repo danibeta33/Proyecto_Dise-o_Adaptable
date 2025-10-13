@@ -45,7 +45,7 @@ export default function Busqueda() {
 
         {/* Search bar y filtros */}
         <div className="busqueda-bar-section">
-          <label htmlFor="search" className="busqueda-label">Búsqueda</label>
+          <label htmlFor="search" className="busqueda-label">🔎 Búsqueda</label>
           <div className="busqueda-bar-row">
             <input id="search" type="text" className="favoritos-search-input" />
             <span className="favoritos-search-icon">
@@ -89,7 +89,7 @@ export default function Busqueda() {
             </div>
             <div className="flex flex-col flex-1 justify-between">
               <div>
-                <h2 className="text-2xl font-semibold text-[#23263a]">Universidad Nacional de Colombia</h2>
+                <h2 className="text-2xl font-semibold text-[#23263a]">🎓 Universidad Nacional de Colombia</h2>
                 <p className="text-sm text-[#23263a] mt-1">Forma parte de una de las universidades más reconocidas del país. El programa de Psicología de la UNAL te brinda una sólida formación teórica y práctica, con enfoque en investigación y compromiso social.</p>
               </div>
               <div className="flex gap-4 mt-4">
@@ -106,7 +106,7 @@ export default function Busqueda() {
             </div>
             <div className="flex flex-col flex-1 justify-between">
               <div>
-                <h2 className="text-2xl font-semibold text-[#23263a]">Universidad EAFIT</h2>
+                <h2 className="text-2xl font-semibold text-[#23263a]">🎓 Universidad EAFIT</h2>
                 <p className="text-sm text-[#23263a] mt-1">Desarrolla tu creatividad en el mundo digital aprendiendo diseño interactivo, animación y programación. Con docentes expertos y acceso a laboratorios de innovación, podrás trabajar en videojuegos, aplicaciones y experiencias inmersivas</p>
               </div>
               <div className="flex gap-4 mt-4">
