@@ -10,7 +10,7 @@ export default function Comentarios() {
   const navigate = useNavigate();
   return (
     <Layout>
-      <div className="coment-main-container">
+      <div className="coment-main-container container">
         {/* Menu */}
         <div className="coment-menu-bar">
           <button className="coment-header-menu-btn" onClick={() => navigate('/busqueda')}>

@@ -34,7 +34,7 @@ export default function Busqueda() {
 
   return (
     <Layout>
-      <div className="busqueda-main-container">
+      <div className="busqueda-main-container container">
         {/* Menu */}
         <div className="busqueda-menu-bar">
           <button className="busqueda-header-menu-btn">
@@ -52,7 +52,7 @@ export default function Busqueda() {
               <svg width="18" height="18" fill="none" stroke="#23263a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="8" r="6"/><line x1="14" y1="14" x2="11.5" y2="11.5"/></svg>
             </span>
           </div>
-          <div className="busqueda-filtros-row">
+          <div className="busqueda-filtros-row flex flex-wrap gap-2">
             <label className="busqueda-checkbox">
               <input
                 type="checkbox"
@@ -116,8 +116,9 @@ export default function Busqueda() {
               </div>
             </div>
           </div>
+
           {/* Mensaje de no resultados */}
-          <div className="busqueda-no-resultados">
+          <div className="busqueda-no-resultados text-center">
             <span>No hay más resultados</span>
             <div className="busqueda-no-resultados-bar"></div>
           </div>

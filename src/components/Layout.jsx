@@ -56,7 +56,7 @@ export default function Layout({ children }) {
   }, []);
   return (
     <div>
-      <header className="pagu-header">
+      <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 50}}>
         <div className="pagu-header-col pagu-header-col-left">
           <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>Logo</div>
         </div>
@@ -73,7 +73,9 @@ export default function Layout({ children }) {
           </button>
         </div>
       </header>
-      {children}
+      <main className="container">
+        {children}
+      </main>
     </div>
   );
 }

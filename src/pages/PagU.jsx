@@ -30,7 +30,7 @@ export default function PagU() {
 
   return (
     <Layout>
-      <div className="pagu-main-container">
+      <div className="pagu-main-container container">
         {/* Menu */}
         <div className="pagu-menu-bar">
           <button className="pagu-header-menu-btn" onClick={() => navigate('/busqueda')}>
@@ -40,7 +40,7 @@ export default function PagU() {
         </div>
 
         {/* Chips de filtros */}
-        <div className="pagu-chips-row">
+        <div className="pagu-chips-row flex flex-wrap gap-2">
           <span className="pagu-chip">Pública</span>
           <span className="pagu-chip">Bogotá</span>
           <span className="pagu-chip">Medellín</span>

@@ -8,7 +8,7 @@ export default function Perfil() {
   const navigate = useNavigate();
   return (
     <Layout>
-      <div className="perfil-main-container">
+      <div className="perfil-main-container container">
         <div className="perfil-content-wrapper">
           {/* Menu */}
           <div className="perfil-menu-bar">
@@ -28,7 +28,7 @@ export default function Perfil() {
             </div>
 
             {/* Inputs de datos */}
-            <div className="perfil-inputs-row">
+            <div className="perfil-inputs-row flex flex-col sm:flex-row gap-2">
               <input className="perfil-input" value="Medellín, Antioquia" readOnly />
               <input className="perfil-input" value="Comunicación Social" readOnly />
             </div>

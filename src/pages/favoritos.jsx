@@ -10,7 +10,7 @@ export default function Favoritos() {
 	const navigate = useNavigate();
 	return (
 		<Layout>
-			<div className="min-h-screen bg-white border-4 border-[#393e4c] rounded-xl flex flex-col">
+			<div className="min-h-screen bg-white border-4 border-[#393e4c] rounded-xl flex flex-col favoritos-main-container container">
 				{/* Menu */}
 				<div className="w-full bg-[#e9ecf3] flex justify-center items-center py-3 border-b border-[#393e4c]">
 					<button className="favoritos-header-menu-btn" onClick={() => navigate('/busqueda')}>
@@ -32,7 +32,7 @@ export default function Favoritos() {
 				</div>
 
 				{/* Title */}
-				<h1 className="text-5xl font-bold text-[#23263a] px-6 pt-8 pb-4">⭐ Favoritos</h1>
+				<h1 className="text-3xl md:text-5xl font-bold text-[#23263a] px-6 pt-8 pb-4">⭐ Favoritos</h1>
 
 				{/* Favorites List */}
 				<div className="flex flex-col gap-8 px-4 pb-8">
