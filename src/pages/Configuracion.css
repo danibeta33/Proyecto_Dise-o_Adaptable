@@ -6,3 +6,16 @@
   background: #fff;
   color: #222;
 }
+
+/* Ajustes responsivos basados en PagU */
+@media (max-width: 768px) {
+  .config-main-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .config-main-container {
+    padding: 0.5rem;
+  }
+}

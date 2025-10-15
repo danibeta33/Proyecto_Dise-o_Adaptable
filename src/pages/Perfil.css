@@ -402,3 +402,16 @@ body.dark-mode .perfil-desc-textarea,
 	color: #fff !important;
 	border-color: #3a3f5c !important;
 }
+
+/* Ajustes responsivos basados en PagU */
+@media (max-width: 768px) {
+  .perfil-main-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .perfil-main-container {
+    padding: 0.5rem;
+  }
+}

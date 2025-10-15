@@ -70,6 +70,9 @@
 	max-width: 1100px;
 	margin: 0 auto 2rem auto;
 	padding: 0 2rem;
+	display: flex;
+	flex-wrap: wrap; /* Permite que los elementos se ajusten dentro del contenedor */
+	gap: 1rem; /* Espaciado entre los elementos */
 }
 .busqueda-img-placeholder {
 	background: #f2f4fa;
@@ -313,6 +316,12 @@ button:hover {
 	letter-spacing: 0.5px;
 }
 
+/* Ajuste para mantener los botones dentro de los contenedores */
+.busqueda-resultados-list button {
+  width: 100%; /* Asegura que el botón no desborde el contenedor */
+  box-sizing: border-box; /* Incluye padding y borde dentro del ancho */
+}
+
 /* Responsive: mejora el padding en pantallas grandes */
 @media (min-width: 768px) {
 	.px-4 {
@@ -325,6 +334,29 @@ button:hover {
 	.pt-8 {
 		padding-top: 3rem !important;
 	}
+}
+
+/* Ajustes responsivos basados en PagU */
+@media (max-width: 768px) {
+  .busqueda-main-container {
+    padding: 1rem;
+  }
+  .busqueda-bar-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .busqueda-resultados-list {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .busqueda-main-container {
+    padding: 0.5rem;
+  }
+  .busqueda-bar-section {
+    gap: 0.5rem;
+  }
 }
 
 /* --- Modo oscuro --- */

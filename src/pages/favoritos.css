@@ -217,3 +217,16 @@ button:hover {
 		padding-top: 3rem !important;
 	}
 }
+
+/* Ajustes responsivos basados en PagU */
+@media (max-width: 768px) {
+  .favoritos-main-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .favoritos-main-container {
+    padding: 0.5rem;
+  }
+}
