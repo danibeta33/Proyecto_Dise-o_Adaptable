@@ -8,6 +8,9 @@ import { useState } from 'react';
 import ToastFavoritos from '../components/ToastFavoritos';
 import Layout from '../components/Layout';
 
+import noticia1 from '../assets/fotos/01_hidrogeno.jpg';
+import noticia2 from '../assets/fotos/02_storage.jpg';
+import noticia3 from '../assets/fotos/03_alaska.jpg';
 
 
 export default function PagU() {
@@ -64,7 +67,9 @@ export default function PagU() {
   <div className="pagu-section-title">📰 Últimas Noticias</div>
         <div className="pagu-news-row">
           <div className="pagu-news-card">
-            <div className="pagu-news-img-placeholder"></div>
+            <div className="pagu-news-img-placeholder">
+              <img src={noticia1} alt="Colombia le apuesta al hidrógeno con…" className="pagu-news-img" />
+            </div>
             <div className="pagu-news-content">
               <h3 className="pagu-news-title">Colombia le apuesta al hidrógeno con…</h3>
               <p className="pagu-news-desc">Con una inversión histórica de $36.500 millones del Sistema General de Regalías (SGR), la Universidad Nacional de Colombia (UNAL) lidera uno de los proyectos de investigación más grandes en ciencia</p>
@@ -72,7 +77,9 @@ export default function PagU() {
             </div>
           </div>
           <div className="pagu-news-card">
-            <div className="pagu-news-img-placeholder"></div>
+            <div className="pagu-news-img-placeholder">
+              <img src={noticia2} alt="Almacenamiento de energía en Colo…" className="pagu-news-img" />
+            </div>
             <div className="pagu-news-content">
               <h3 className="pagu-news-title">Almacenamiento de energía en Colo…</h3>
               <p className="pagu-news-desc">En 2025, Colombia está impulsando el almacenamiento de energía, especialmente a través de baterías, para apoyar el crecimiento de las energías renovables y mejorar la eficiencia del sistema eléctrico.</p>
@@ -80,7 +87,9 @@ export default function PagU() {
             </div>
           </div>
           <div className="pagu-news-card">
-            <div className="pagu-news-img-placeholder"></div>
+            <div className="pagu-news-img-placeholder">
+              <img src={noticia3} alt="De la Cumbre de Alaska, algo más …" className="pagu-news-img" />
+            </div>
             <div className="pagu-news-content">
               <h3 className="pagu-news-title">De la Cumbre de Alaska, algo más …</h3>
               <p className="pagu-news-desc">La cumbre del 14 de agosto entre Donald Trump, presidente de Estados Unidos, y Vladimir Putin, presidente de la Federación de Rusia y gobernante directo e indirecto desde 1999, tenía por objeto —por lo menos— definir una ruta…</p>
