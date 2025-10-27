@@ -928,6 +928,7 @@ body.dark-mode .btn-principal:hover,
 	left: 0;
 	background: linear-gradient(to right, rgba(35,38,58,0.28), rgba(35,38,58,0));
 }
-@media (max-width: 1024px) {
+/* Ocultar pilares en tablets (iPad Air/Pro) y dispositivos táctiles */
+@media (max-width: 1366px), (hover: none) and (pointer: coarse) {
 	.pagu-pillar { display: none; }
 }

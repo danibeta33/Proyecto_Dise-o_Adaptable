@@ -40,7 +40,7 @@ export default function ComentariosEafit() {
         {/* Menú eliminado a solicitud */}
 
   {/* Título */}
-  <div className="coment-section-title">Comentarios — Universidad EAFIT</div>
+  <div className="coment-section-title">Comentarios</div>
 
         {/* Lista de comentarios */}
         <div className="coment-list-block">

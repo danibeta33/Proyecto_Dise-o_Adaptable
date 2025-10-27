@@ -232,7 +232,8 @@ button:hover {
 }
 .favoritos-pillar-left::after { right: 0; background: linear-gradient(to left, rgba(35,38,58,0.28), rgba(35,38,58,0)); }
 .favoritos-pillar-right::after { left: 0; background: linear-gradient(to right, rgba(35,38,58,0.28), rgba(35,38,58,0)); }
-@media (max-width: 1024px) { .favoritos-pillar { display: none; } }
+/* Ocultar pilares en tablets (iPad Air/Pro) y dispositivos táctiles */
+@media (max-width: 1366px), (hover: none) and (pointer: coarse) { .favoritos-pillar { display: none; } }
 
 /* Botones inferiores */
 .mt-auto button {
