@@ -11,6 +11,11 @@ import Layout from '../components/Layout';
 import noticia1 from '../assets/fotos/01_hidrogeno.jpg';
 import noticia2 from '../assets/fotos/02_storage.jpg';
 import noticia3 from '../assets/fotos/03_alaska.jpg';
+import u1 from '../imgs/UNacional/1.jpg';
+import u2 from '../imgs/UNacional/2.jpg';
+import u3 from '../imgs/UNacional/3.jpg';
+import u4 from '../imgs/UNacional/4.jpg';
+import u5 from '../imgs/UNacional/5.jpg';
 
 
 export default function PagU() {
@@ -31,8 +36,33 @@ export default function PagU() {
     navigate('/favoritos');
   };
 
+  // Parallax deshabilitado a solicitud
+
   return (
     <Layout>
+      {/* Pilares decorativos solo desktop */}
+      <div className="pagu-pillars" aria-hidden>
+        <aside className="pagu-pillar pagu-pillar-left">
+          <div className="pagu-pillar-cap" />
+          <div className="pagu-pillar-images">
+            <img src={u1} alt="Decoración" />
+            <img src={u2} alt="Decoración" />
+            <img src={u3} alt="Decoración" />
+            <img src={u4} alt="Decoración" />
+            <img src={u5} alt="Decoración" />
+          </div>
+        </aside>
+        <aside className="pagu-pillar pagu-pillar-right">
+          <div className="pagu-pillar-cap" />
+          <div className="pagu-pillar-images">
+            <img src={u2} alt="Decoración" />
+            <img src={u3} alt="Decoración" />
+            <img src={u4} alt="Decoración" />
+            <img src={u5} alt="Decoración" />
+            <img src={u1} alt="Decoración" />
+          </div>
+        </aside>
+      </div>
       <div className="pagu-main-container">
         {/* Menú eliminado a solicitud */}
 

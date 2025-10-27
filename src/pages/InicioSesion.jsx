@@ -10,11 +10,11 @@ export default function InicioSesion() {
 
   const handlePerfil = () => {
     setUserType('perfil');
-    navigate('/busqueda');
+    navigate('/home');
   };
   const handleAnonimo = () => {
     setUserType('anonimo');
-    navigate('/busqueda');
+    navigate('/home');
   };
 
   return (

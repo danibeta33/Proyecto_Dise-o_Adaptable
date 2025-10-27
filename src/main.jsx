@@ -54,6 +54,7 @@ function Main() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<InicioSesion />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/busqueda" element={<Busqueda />} />
           <Route path="/pagu" element={<PagU />} />

@@ -865,3 +865,69 @@ body.dark-mode .btn-principal:hover,
 	color: #fff !important;
 	border: 2px solid #fff !important;
 }
+
+/* Pilares decorativos solo en escritorio */
+.pagu-pillars { pointer-events: none; }
+.pagu-pillar {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 180px; /* un poco más ancho */
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	z-index: 30; /* por debajo del header (60) y por encima del fondo */
+}
+.pagu-pillar-left { left: 0; }
+.pagu-pillar-right { right: 0; }
+.pagu-pillar-cap {
+	height: 18px;
+	background: #23263a; /* superioridad */
+		z-index: 2;
+}
+.pagu-pillar-images {
+	flex: 1 1 auto;
+	overflow: hidden;
+	background: #f2f4fa;
+}
+.pagu-pillar-images img {
+	width: 100%;
+	height: 220px; /* imágenes más grandes, recortadas */
+	object-fit: cover;
+	display: block;
+}
+/* Tinte de color del pilar */
+.pagu-pillar::before {
+	content: "";
+	position: absolute;
+	top: 18px; /* debajo de la tapa */
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(35, 38, 58, 0.8); /* #23263a con 80% de alpha */
+	z-index: 1;
+}
+.dark-mode .pagu-pillar::before {
+	background: rgba(35, 38, 58, 0.8);
+}
+/* Borde interno difuminado hacia el centro */
+.pagu-pillar-left::after,
+.pagu-pillar-right::after {
+	content: "";
+	position: absolute;
+	top: 18px;
+	height: calc(100% - 18px);
+	width: 26px;
+	z-index: 1;
+}
+.pagu-pillar-left::after {
+	right: 0;
+	background: linear-gradient(to left, rgba(35,38,58,0.28), rgba(35,38,58,0));
+}
+.pagu-pillar-right::after {
+	left: 0;
+	background: linear-gradient(to right, rgba(35,38,58,0.28), rgba(35,38,58,0));
+}
+@media (max-width: 1024px) {
+	.pagu-pillar { display: none; }
+}
