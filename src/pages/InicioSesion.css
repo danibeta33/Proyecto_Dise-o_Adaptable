@@ -1,12 +1,54 @@
 /* Contenedor principal */
 .inicio-main {
+  position: relative;
   min-height: 100dvh;
-  background: #e9ecf3; /* igual que Busqueda */
+  background: #e9ecf3; /* fallback */
+  background-image: url("../imgs/fondos/fondo 1.png");
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
+  animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.inicio-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 38, 58, 0.6); /* cuadro azul con alpha como PagU */
+  z-index: 0;
+}
+
+/* Wrapper para apilar logo + tarjeta */
+.inicio-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1; /* por encima del overlay */
+}
+
+/* Logo superior, centrado y de tamaño mediano */
+.inicio-logo-badge {
+  width: 200px; /* +40% */
+  height: 200px; /* +40% */
+  border-radius: 20px; /* +~40% */
+  background: #fff;
+  border: 2px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 #23263a14;
+}
+.inicio-logo-badge img {
+  width: 170px; /* +40% */
+  height: 170px; /* +40% */
+  object-fit: contain;
+  display: block;
+}
+.dark-mode .inicio-logo-badge { background: #23263a; border-color: #3a3f5c; }
 
 /* Tarjeta */
 .inicio-card {
@@ -40,6 +82,9 @@
 
 /* Modo oscuro específico */
 .dark-mode .inicio-card { background: #2d3146; border-color: #3a3f5c; }
-.dark-mode .inicio-main { background: #23283b; }
+.dark-mode .inicio-main { background-color: #23283b; }
 .dark-mode .inicio-title, .dark-mode .inicio-desc { color: #fff; }
 .dark-mode .inicio-foot { color: #bfc5d2; }
+
+/* Evitar espacio entre el fondo y el pie de página en esta página */
+.inicio-main ~ .app-footer { margin-top: 0 !important; }

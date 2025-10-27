@@ -1,5 +1,5 @@
 /* Home page styles aligned with app palette */
-.home-main { background: #e9ecf3; min-height: 100dvh; }
+.home-main { background: #e9ecf3; min-height: 100dvh; animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
 
 /* Hero */
 .home-hero {

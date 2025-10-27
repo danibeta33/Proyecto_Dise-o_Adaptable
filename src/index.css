@@ -105,6 +105,14 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   }
 }
 
+/* Animación global de entrada para páginas */
+@keyframes paguFadeIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+  60% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.page-fade-in { animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+
 /* Insignia del logo (cuadro redondeado) */
 .logo-badge {
   width: 44px;

@@ -6,7 +6,7 @@ const Integracion = () => {
   const { darkMode, toggleDarkMode } = useDarkModeStore();
 
   return (
-    <div className={darkMode ? "dark-mode" : "light-mode"}>
+    <div className={(darkMode ? "dark-mode" : "light-mode") + " integracion-root"}>
   <h2>🔗 Integración</h2>
       <button onClick={toggleDarkMode}>
         {darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}

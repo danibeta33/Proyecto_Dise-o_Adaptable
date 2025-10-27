@@ -1,3 +1,5 @@
+/* Animación de entrada de la página Favoritos */
+.favoritos-main-container { animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
 /* Header: centrado perfecto de logo, centro y botón derecho */
 .favoritos-header {
 	display: flex;
@@ -197,6 +199,34 @@ button:hover {
 	filter: brightness(0.95);
 	box-shadow: 0 4px 16px 0 #23263a22;
 }
+
+/* Fondo: se quita la imagen para dejarla solo en los pilares */
+
+/* Pilares decorativos (basados en PagU) */
+.favoritos-pillars { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; }
+.favoritos-pillar {
+	position: absolute;
+	top: 0; bottom: 0;
+	width: min(18vw, 220px);
+	display: flex; flex-direction: column;
+}
+.favoritos-pillar-left { left: 0; }
+.favoritos-pillar-right { right: 0; }
+.favoritos-pillar-cap { height: 18px; background: #23263a; z-index: 2; }
+.favoritos-pillar-images { flex: 1 1 auto; overflow: hidden; background: #f2f4fa; }
+.favoritos-pillar-images img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.favoritos-pillar::before {
+	content: ""; position: absolute; top: 18px; left: 0; right: 0; bottom: 0;
+	background: rgba(35, 38, 58, 0.8);
+	z-index: 1;
+}
+.dark-mode .favoritos-pillar::before { background: rgba(35, 38, 58, 0.8); }
+.favoritos-pillar-left::after, .favoritos-pillar-right::after {
+	content: ""; position: absolute; top: 18px; height: calc(100% - 18px); width: 26px; z-index: 1;
+}
+.favoritos-pillar-left::after { right: 0; background: linear-gradient(to left, rgba(35,38,58,0.28), rgba(35,38,58,0)); }
+.favoritos-pillar-right::after { left: 0; background: linear-gradient(to right, rgba(35,38,58,0.28), rgba(35,38,58,0)); }
+@media (max-width: 1024px) { .favoritos-pillar { display: none; } }
 
 /* Botones inferiores */
 .mt-auto button {

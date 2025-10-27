@@ -6,7 +6,7 @@ const Configuracion = () => {
   const { darkMode, toggleDarkMode } = useDarkModeStore();
 
   return (
-    <div className={darkMode ? "dark-mode" : "light-mode"}>
+    <div className={(darkMode ? "dark-mode" : "light-mode") + " config-root"}>
       <h2>⚙️ Configuración</h2>
       <button onClick={toggleDarkMode}>
         {darkMode ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}

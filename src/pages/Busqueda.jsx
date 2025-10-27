@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ToastFavoritos from '../components/ToastFavoritos';
 import Layout from '../components/Layout';
+import useAuthStore from '../store/authStore';
+import FondoImg from '../imgs/fondos/fondo.png';
 
 
 
@@ -15,8 +17,10 @@ export default function Busqueda() {
   const [query, setQuery] = useState('');
   const [showResults, setShowResults] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [showLoginToast, setShowLoginToast] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const navigate = useNavigate();
+  const userType = useAuthStore((s) => s.userType);
 
   const handleFiltroChange = (e) => {
     const { name, checked } = e.target;
@@ -24,7 +28,11 @@ export default function Busqueda() {
   };
 
   const handleFavoritosClick = () => {
-    setShowToast(true);
+    if (userType === 'perfil') {
+      setShowToast(true);
+    } else {
+      setShowLoginToast(true);
+    }
   };
 
   const handleToastClose = () => {
@@ -34,6 +42,10 @@ export default function Busqueda() {
   const handleToastFavoritos = () => {
     setShowToast(false);
     navigate('/favoritos');
+  };
+  const handleLoginRequired = () => {
+    setShowLoginToast(false);
+    navigate('/inicio');
   };
 
   const handleBuscar = () => {
@@ -55,6 +67,29 @@ export default function Busqueda() {
 
   return (
     <Layout>
+      {/* Pilares decorativos solo desktop */}
+      <div className="busqueda-pillars" aria-hidden>
+        <aside className="busqueda-pillar busqueda-pillar-left">
+          <div className="busqueda-pillar-cap" />
+          <div className="busqueda-pillar-images">
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+          </div>
+        </aside>
+        <aside className="busqueda-pillar busqueda-pillar-right">
+          <div className="busqueda-pillar-cap" />
+          <div className="busqueda-pillar-images">
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+            <img src={FondoImg} alt="Decoración" />
+          </div>
+        </aside>
+      </div>
       <div className="busqueda-main-container container">
         {/* Menu eliminado a solicitud */}
 
@@ -157,6 +192,15 @@ export default function Busqueda() {
           visible={showToast}
           onClose={handleToastClose}
           onFavoritos={handleToastFavoritos}
+        />
+        <ToastFavoritos
+          visible={showLoginToast}
+          onClose={() => setShowLoginToast(false)}
+          onFavoritos={handleLoginRequired}
+          message="Es necesario iniciar sesión"
+          primaryLabel="Cerrar"
+          secondaryLabel="Iniciar sesión"
+          showFavoritos={true}
         />
       </div>
     </Layout>

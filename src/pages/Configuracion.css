@@ -7,6 +7,8 @@
   color: #222;
 }
 
+.config-root { animation: paguFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1); min-height: 100dvh; padding: 1rem; }
+
 /* Ajustes responsivos basados en PagU */
 @media (max-width: 768px) {
   .config-main-container {

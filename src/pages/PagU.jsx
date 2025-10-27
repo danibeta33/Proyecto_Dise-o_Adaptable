@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ToastFavoritos from '../components/ToastFavoritos';
 import Layout from '../components/Layout';
+import useAuthStore from '../store/authStore';
 
 import noticia1 from '../assets/fotos/01_hidrogeno.jpg';
 import noticia2 from '../assets/fotos/02_storage.jpg';
@@ -21,12 +22,18 @@ import u5 from '../imgs/UNacional/5.jpg';
 export default function PagU() {
   const navigate = useNavigate();
   const [showToast, setShowToast] = useState(false);
+  const [showLoginToast, setShowLoginToast] = useState(false);
   const [animateBtn, setAnimateBtn] = useState(false);
+  const userType = useAuthStore((s) => s.userType);
 
   // Handler for animated button click
   const handleAddFavClick = () => {
     setAnimateBtn(true);
-    setShowToast(true);
+    if (userType === 'perfil') {
+      setShowToast(true);
+    } else {
+      setShowLoginToast(true);
+    }
     setTimeout(() => setAnimateBtn(false), 350); // Animation duration
   };
 
@@ -34,6 +41,10 @@ export default function PagU() {
   const handleGoFavoritos = () => {
     setShowToast(false);
     navigate('/favoritos');
+  };
+  const handleGoLogin = () => {
+    setShowLoginToast(false);
+    navigate('/inicio');
   };
 
   // Parallax deshabilitado a solicitud
@@ -158,6 +169,15 @@ export default function PagU() {
           visible={showToast}
           onClose={handleCloseToast}
           onFavoritos={handleGoFavoritos}
+        />
+        <ToastFavoritos
+          visible={showLoginToast}
+          onClose={() => setShowLoginToast(false)}
+          onFavoritos={handleGoLogin}
+          message="Es necesario iniciar sesión"
+          primaryLabel="Cerrar"
+          secondaryLabel="Iniciar sesión"
+          showFavoritos={true}
         />
       </div>
     </Layout>

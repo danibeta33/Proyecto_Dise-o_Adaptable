@@ -4,12 +4,36 @@ import UNacional from '../imgs/UNacional.jpg';
 import UEafit from '../imgs/UEafit.jpg';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import FondoImg from '../imgs/fondos/fondo.png';
 
 
 export default function Favoritos() {
 	const navigate = useNavigate();
 	return (
 		<Layout>
+			{/* Pilares decorativos solo desktop */}
+			<div className="favoritos-pillars" aria-hidden>
+				<aside className="favoritos-pillar favoritos-pillar-left">
+					<div className="favoritos-pillar-cap" />
+					<div className="favoritos-pillar-images">
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+					</div>
+				</aside>
+				<aside className="favoritos-pillar favoritos-pillar-right">
+					<div className="favoritos-pillar-cap" />
+					<div className="favoritos-pillar-images">
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+						<img src={FondoImg} alt="Decoración" />
+					</div>
+				</aside>
+			</div>
 			<div className="min-h-screen flex flex-col favoritos-main-container container">
 				{/* Menu */}
 				{/* Barra de menú eliminada a solicitud */}
