@@ -1,7 +1,9 @@
 import Layout from '../components/Layout';
 import './home.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  const navigate = useNavigate();
   // Cargar imágenes disponibles de la carpeta Home y resolver URLs con Vite
   const images = import.meta.glob('../imgs/Home/*', { eager: true, as: 'url' });
   const fondo2 = images['../imgs/Home/fondo2.jpg'] || images['../imgs/Home/fondo2.png'];
@@ -39,6 +41,7 @@ export default function Home() {
             <p className="home-desc"><strong>
               Tu futuro comienza aquí: infórmate, explora y elige la carrera de tus sueños.
             </strong></p>
+            <button className="btn-principal" onClick={() => navigate('/busqueda')}>Busca ahora</button>
           </div>
         </section>
 

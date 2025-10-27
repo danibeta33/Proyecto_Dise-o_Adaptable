@@ -4,6 +4,7 @@ import hoverSoundSrc from '../imgs/hoverSound.wav';
 import clickSoundSrc from '../imgs/clicSound.wav';
 import ULogo from '../imgs/U.png';
 import useAuthStore from '../store/authStore';
+import Footer from './footer/footer';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
@@ -66,13 +67,24 @@ export default function Layout({ children }) {
     <div>
       <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 60, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 12px', borderBottom:'2px solid #393e4c', background:'#fff'}}>
         <div className="pagu-header-col pagu-header-col-left" style={{display:'flex', alignItems:'center'}}>
-          <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>
+          <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/home')}>
             <div className="logo-badge" aria-label="Inicio / Perfil">
               <img src={ULogo} alt="Logo U" loading="lazy" />
             </div>
           </div>
         </div>
-        <div className="pagu-header-col pagu-header-col-right" style={{display:'flex', alignItems:'center', gap:'8px'}}>
+        <div className="pagu-header-col pagu-header-col-right" style={{display:'flex', alignItems:'center', gap:'10px'}}>
+          {userType === 'perfil' ? (
+            <span style={{color:'#23263a', fontWeight:700, whiteSpace:'nowrap'}}>Bienvenid@, Sofia</span>
+          ) : (
+            <button
+              className="btn-secundario"
+              style={{padding:'0.5rem 0.8rem', whiteSpace:'nowrap'}}
+              onClick={() => navigate('/inicio')}
+            >
+              Iniciar Sesion
+            </button>
+          )}
           <button className="header-menu-btn" aria-label="Abrir menú" onClick={() => setSidebarOpen(true)}>
             ☰
           </button>
@@ -92,14 +104,17 @@ export default function Layout({ children }) {
           <button className="sidebar-close-btn" aria-label="Cerrar" onClick={() => setSidebarOpen(false)}>×</button>
         </div>
         <div className="sidebar-content">
+          <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/home'); }}>Home</div>
+          <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/busqueda'); }}>Busqueda</div>
           {userType === 'perfil' && (
-            <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/perfil'); }}>Perfil</div>
+            <>
+              <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/perfil'); }}>Perfil</div>
+              <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/favoritos'); }}>Favoritos</div>
+            </>
           )}
-          <div className="sidebar-item">Opción 2</div>
-          <div className="sidebar-item">Opción 3</div>
-          <div className="sidebar-item">Opción 4</div>
         </div>
       </aside>
+      <Footer />
     </div>
   );
 }
