@@ -84,7 +84,7 @@ export default function Favoritos() {
 							</div>
 							<div className="flex gap-4 mt-4">
 								{/* Botones de las tarjetas */}
-								<button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
+								<button className="btn-principal" onClick={() => navigate('/pagueafit')}>Ir a la Página</button>
 								<button className="btn-secundario">Eliminar</button>
 							</div>
 						</div>

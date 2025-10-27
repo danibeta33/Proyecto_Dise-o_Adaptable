@@ -166,7 +166,7 @@ export default function Busqueda() {
                 <p className="text-sm text-[#23263a] mt-1">Desarrolla tu creatividad en el mundo digital aprendiendo diseño interactivo, animación y programación. Con docentes expertos y acceso a laboratorios de innovación, podrás trabajar en videojuegos, aplicaciones y experiencias inmersivas</p>
               </div>
               <div className="flex gap-4 mt-4">
-                <button className="btn-principal" onClick={() => navigate('/pagu')}>Ir a la Página</button>
+                <button className="btn-principal" onClick={() => navigate('/pagueafit')}>Ir a la Página</button>
                 <button className="btn-secundario" onClick={handleFavoritosClick}>Favoritos</button>
                 <button className="btn-secundario">Guardar</button>
               </div>

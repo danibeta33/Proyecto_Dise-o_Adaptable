@@ -8,7 +8,9 @@ import Favoritos from './pages/favoritos';
 import Perfil from './pages/Perfil';
 import Busqueda from './pages/Busqueda';
 import PagU from './pages/PagU';
+import PagUEafit from './pages/PagUEafit';
 import Comentarios from './pages/Comentarios';
+import ComentariosEafit from './pages/ComentariosEafit';
 import useDarkModeStore from './store/darkModeStore';
 import DarkModeButton from './components/DarkModeButton';
 import InicioSesion from './pages/InicioSesion';
@@ -58,7 +60,9 @@ function Main() {
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/busqueda" element={<Busqueda />} />
           <Route path="/pagu" element={<PagU />} />
+          <Route path="/pagueafit" element={<PagUEafit />} />
           <Route path="/comentarios" element={<Comentarios />} />
+          <Route path="/comentarios-eafit" element={<ComentariosEafit />} />
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/inicio" element={<InicioSesion />} />
         </Routes>
