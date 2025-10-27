@@ -57,6 +57,54 @@
 	box-sizing: border-box;
 }
 
+/* Reload/entrada con difuminado superior e inferior */
+.perfil-reload { position: relative; animation: perfilReload .6s ease both; }
+.perfil-reload::before,
+.perfil-reload::after {
+	content: "";
+	position: absolute;
+	left: 0; right: 0;
+	height: 26%;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .45s ease;
+}
+.perfil-reload::before { top: 0; background: linear-gradient(to bottom, rgba(246,248,252,1), rgba(246,248,252,0)); }
+.perfil-reload::after { bottom: 0; background: linear-gradient(to top, rgba(246,248,252,1), rgba(246,248,252,0)); }
+.perfil-reload { --mask-opacity: 0; }
+.perfil-reload { animation: perfilReload .6s ease both; }
+@keyframes perfilReload {
+	0% { opacity: 0; transform: translateY(18px) scale(0.985); }
+	60% { opacity: 1; transform: translateY(-4px) scale(1.005); }
+	100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.perfil-reload { animation: perfilReload .6s ease both; }
+.perfil-reload { animation-name: perfilReload; }
+/* activar difuminado solo durante la entrada: manejado por perfilMaskFade */
+.perfil-reload::before, .perfil-reload::after { opacity: 0.9; animation: perfilMaskFade .6s ease both; }
+@keyframes perfilMaskFade { 0% { opacity: 0.9; } 100% { opacity: 0; } }
+
+/* Estilos en modo edición: resaltar campos editables */
+.is-editing .editable-field {
+	border-color: #d13c5a !important;
+	box-shadow: 0 0 0 2px rgba(209,60,90,0.18);
+	background: #fffdfa;
+}
+.is-editing .editable-field:focus {
+	border-color: #d13c5a !important;
+	box-shadow: 0 0 0 3px rgba(209,60,90,0.22);
+}
+
+/* Resaltado del contorno de la foto en modo edición */
+.is-editing .perfil-img-container {
+  border: 3px solid #d13c5a;
+  box-shadow: 0 0 0 3px rgba(209,60,90,0.18);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.is-editing .perfil-img-container:hover {
+  box-shadow: 0 0 0 4px rgba(209,60,90,0.24);
+}
+
 body {
 	background: #e9ecf3;
 	margin: 0;
@@ -157,14 +205,16 @@ body {
 
 /* Imagen de perfil */
 .perfil-img-container {
-	width: 380px;
-	height: 300px;
+	width: 340px;
+	aspect-ratio: 1 / 1; /* cuadrado */
+	height: auto; /* derivado del ancho */
 	background: #23263a;
-	border-radius: 8px;
+	border-radius: 12px;
 	margin-bottom: 2.5rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden; /* recorta la imagen cuadrada */
 }
 .perfil-img-placeholder {
 	display: flex;
@@ -345,6 +395,9 @@ body.dark-mode .perfil-content-bg,
 .perfil-content-bg.dark-mode {
 	background: #3a3f5c !important;
 }
+/* Gradientes para modo oscuro */
+.dark-mode .perfil-reload::before { background: linear-gradient(to bottom, rgba(58,63,92,1), rgba(58,63,92,0)); }
+.dark-mode .perfil-reload::after { background: linear-gradient(to top, rgba(58,63,92,1), rgba(58,63,92,0)); }
 body.dark-mode .perfil-header,
 .perfil-header.dark-mode {
 	background: #2d3146 !important;
@@ -418,10 +471,12 @@ body.dark-mode .perfil-desc-textarea,
 		padding-left: 1rem;
 		padding-right: 1rem;
 	}
+  .perfil-img-container { width: 280px; }
 }
 
 @media (max-width: 600px) {
   .perfil-main-container {
     padding: 0.5rem;
   }
+  .perfil-img-container { width: 220px; }
 }

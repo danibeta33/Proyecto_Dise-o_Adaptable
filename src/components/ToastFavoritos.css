@@ -66,3 +66,12 @@
 .toast-fav-btn:hover {
   background: #23283b;
 }
+
+/* Generic select modal grid */
+.select-modal-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+.select-modal-btn { width: 100%; padding: 0.7rem 1rem; }

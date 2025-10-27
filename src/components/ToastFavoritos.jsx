@@ -7,6 +7,8 @@ export default function ToastFavoritos({
   onFavoritos,
   message = "Se guardó con éxito",
   showFavoritos = true,
+  primaryLabel = 'Cerrar',
+  secondaryLabel = 'Favoritos',
 }) {
   if (!visible) return null;
   return (
@@ -14,9 +16,9 @@ export default function ToastFavoritos({
       <div className="toast-fav-window">
         <span className="toast-fav-text">{message}</span>
         <div className="toast-fav-btn-row">
-          <button className="toast-fav-btn" onClick={onClose}>Cerrar</button>
+          <button className="toast-fav-btn" onClick={onClose}>{primaryLabel}</button>
           {showFavoritos && (
-            <button className="toast-fav-btn toast-fav-btn-rosado" onClick={onFavoritos}>Favoritos</button>
+            <button className="toast-fav-btn toast-fav-btn-rosado" onClick={onFavoritos}>{secondaryLabel}</button>
           )}
         </div>
       </div>

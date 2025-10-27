@@ -5,6 +5,7 @@ import clickSoundSrc from '../imgs/clicSound.wav';
 import ULogo from '../imgs/U.png';
 import useAuthStore from '../store/authStore';
 import Footer from './footer/footer';
+import ToastFavoritos from './ToastFavoritos';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ export default function Layout({ children }) {
   const clickAudio = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const userType = useAuthStore((s) => s.userType);
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const setUserType = useAuthStore((s) => s.setUserType);
 
   useEffect(() => {
     // Crear elementos Audio y preparar para reproducción
@@ -113,7 +116,34 @@ export default function Layout({ children }) {
             </>
           )}
         </div>
+        {userType === 'perfil' && (
+          <div className="sidebar-footer">
+            <button
+              className="sidebar-logout-btn"
+              onClick={() => {
+                setShowLogoutConfirm(true);
+              }}
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        )}
       </aside>
+      {/* Confirmación de cierre de sesión */}
+      <ToastFavoritos
+        visible={showLogoutConfirm}
+        message="¿Seguro que deseas cerrar sesión?"
+        primaryLabel="Cancelar"
+        secondaryLabel="Cerrar sesión"
+        showFavoritos={true}
+        onClose={() => setShowLogoutConfirm(false)}
+        onFavoritos={() => {
+          setUserType('anonimo');
+          setShowLogoutConfirm(false);
+          setSidebarOpen(false);
+          navigate('/inicio');
+        }}
+      />
       <Footer />
     </div>
   );

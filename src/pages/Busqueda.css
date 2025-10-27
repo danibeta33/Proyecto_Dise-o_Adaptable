@@ -75,6 +75,11 @@
 	gap: 1rem; /* Espaciado entre elementos */
 	justify-content: center; /* centrar cards */
 }
+.busqueda-fade-in { animation: busquedaFadeInDown .45s ease-out both; }
+@keyframes busquedaFadeInDown {
+	0% { opacity: 0; transform: translateY(-10px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
 .busqueda-img-placeholder {
 	background: #f2f4fa;
 	border: 1.5px solid #23263a;
@@ -110,6 +115,7 @@
 	margin-bottom: 2.5rem;
 	width: 100%;
 }
+.busqueda-bottom-btn-row.empty { margin-top: 2.5rem; }
 
 /* Header Busqueda (igual a Perfil) */
 

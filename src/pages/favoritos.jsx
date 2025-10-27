@@ -71,7 +71,7 @@ export default function Favoritos() {
 				<div className="flex flex-col md:flex-row justify-center gap-8 mt-auto px-4 pb-8">
 					{/* Botones inferiores */}
 					<button className="favoritos-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
-					<button className="favoritos-bottom-btn">Añadir</button>
+					<button className="favoritos-bottom-btn" onClick={() => navigate('/busqueda')}>Añadir</button>
 				</div>
 			</div>
 		</Layout>

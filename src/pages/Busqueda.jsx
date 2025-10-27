@@ -10,8 +10,12 @@ import Layout from '../components/Layout';
 
 
 export default function Busqueda() {
-  const [filtros, setFiltros] = useState({ ciudad: false, pais: false, comunicacion: true });
+  const initialFiltros = { ciudad: false, pais: false, comunicacion: false };
+  const [filtros, setFiltros] = useState(initialFiltros);
+  const [query, setQuery] = useState('');
+  const [showResults, setShowResults] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
   const navigate = useNavigate();
 
   const handleFiltroChange = (e) => {
@@ -32,6 +36,23 @@ export default function Busqueda() {
     navigate('/favoritos');
   };
 
+  const handleBuscar = () => {
+    // Mostrar resultados solo si "Comunicación" está seleccionado
+    if (filtros.comunicacion) {
+      setShowResults(true);
+    } else {
+      setShowResults(false);
+    }
+    setHasSearched(true);
+  };
+
+  const handleRestablecer = () => {
+    setFiltros(initialFiltros);
+    setQuery('');
+    setShowResults(false);
+    setHasSearched(false);
+  };
+
   return (
     <Layout>
       <div className="busqueda-main-container container">
@@ -40,11 +61,16 @@ export default function Busqueda() {
         {/* Search bar y filtros */}
         <div className="busqueda-bar-section">
           <label htmlFor="search" className="busqueda-label">🔎 Búsqueda</label>
-          <div className="busqueda-bar-row">
-            <input id="search" type="text" className="favoritos-search-input" />
-            <span className="favoritos-search-icon">
-              <svg width="18" height="18" fill="none" stroke="#23263a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="8" r="6"/><line x1="14" y1="14" x2="11.5" y2="11.5"/></svg>
-            </span>
+          <div className="busqueda-bar-row" style={{gap:'8px'}}>
+            <input
+              id="search"
+              type="text"
+              className="favoritos-search-input"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Escribe tu búsqueda"
+            />
+            <button className="btn-principal" onClick={handleBuscar}>Buscar</button>
           </div>
           <div className="busqueda-filtros-row flex flex-wrap gap-2">
             <label className="busqueda-checkbox">
@@ -75,9 +101,10 @@ export default function Busqueda() {
         </div>
 
         {/* Resultados */}
+        {showResults && (
         <div className="busqueda-resultados-list">
           {/* Card 1 */}
-          <div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc] mb-6">
+          <div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc] mb-6 busqueda-fade-in">
             <div className="flex-shrink-0 w-full md:w-56 h-40 rounded-md busqueda-img-placeholder overflow-hidden">
               <img src={UNacionalImg} alt="Universidad Nacional de Colombia" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px'}} />
             </div>
@@ -94,7 +121,7 @@ export default function Busqueda() {
             </div>
           </div>
           {/* Card 2 */}
-          <div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc] mb-6">
+          <div className="border-2 border-dashed border-[#23263a] rounded-lg flex flex-col md:flex-row items-stretch p-4 gap-4 bg-[#f6f8fc] mb-6 busqueda-fade-in" style={{animationDelay:'.08s'}}>
             <div className="flex-shrink-0 w-full md:w-56 h-40 rounded-md busqueda-img-placeholder overflow-hidden">
               <img src={UEafitImg} alt="Universidad EAFIT" style={{width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px'}} />
             </div>
@@ -117,11 +144,14 @@ export default function Busqueda() {
             <div className="busqueda-no-resultados-bar"></div>
           </div>
         </div>
+        )}
 
         {/* Botones inferiores */}
-        <div className="busqueda-bottom-btn-row">
+        <div className={`busqueda-bottom-btn-row ${!showResults ? 'empty' : ''}`}>
           <button className="favoritos-bottom-btn" onClick={() => navigate(-1)}>Atras</button>
-          <button className="favoritos-bottom-btn">Restablecer</button>
+          {hasSearched && (
+            <button className="favoritos-bottom-btn" onClick={handleRestablecer}>Restablecer</button>
+          )}
         </div>
         <ToastFavoritos
           visible={showToast}
