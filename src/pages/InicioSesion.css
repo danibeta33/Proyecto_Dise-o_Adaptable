@@ -1,0 +1,45 @@
+/* Contenedor principal */
+.inicio-main {
+  min-height: 100dvh;
+  background: #e9ecf3; /* igual que Busqueda */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Tarjeta */
+.inicio-card {
+  width: 100%;
+  max-width: 540px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+.inicio-title {
+  margin: 0 0 8px 0;
+  color: var(--primary);
+}
+.inicio-desc {
+  margin: 0 0 20px 0;
+  color: var(--primary);
+}
+
+.inicio-actions { display: flex; flex-direction: column; gap: 12px; }
+.inicio-actions .btn-principal,
+.inicio-actions .btn-secundario { width: 100%; padding: 0.9rem 1.2rem; }
+
+.inicio-foot {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #5c637a;
+}
+
+/* Modo oscuro específico */
+.dark-mode .inicio-card { background: #2d3146; border-color: #3a3f5c; }
+.dark-mode .inicio-main { background: #23283b; }
+.dark-mode .inicio-title, .dark-mode .inicio-desc { color: #fff; }
+.dark-mode .inicio-foot { color: #bfc5d2; }

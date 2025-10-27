@@ -2,7 +2,7 @@
 
 /* Tipografía y variables base */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Josefin Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -39,6 +39,30 @@ body { margin: 0; min-width: 320px; min-height: 100vh; }
 
 /* Componentes base */
 h1 { font-size: 3.2em; line-height: 1.1; }
+/* Tipografía títulos/subtítulos */
+h1, h2, h3, h4, h5, h6,
+.pagu-title, .pagu-section-title, .coment-title {
+  font-family: 'Archivo Black', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 400;
+}
+
+/* Botones con tipografía de títulos */
+button,
+.btn-principal,
+.btn-secundario,
+.favoritos-bottom-btn,
+.pagu-bottom-btn,
+.pagu-news-btn,
+.coment-bottom-btn,
+.perfil-bottom-btn,
+.header-menu-btn {
+  font-family: 'Archivo Black', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Título del sidebar con tipografía de títulos */
+.sidebar-title {
+  font-family: 'Archivo Black', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -86,8 +110,8 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   width: 44px;
   height: 44px;
   border-radius: 12px; /* cuadro redondeado */
-  background: var(--primary);
-  border: 2px solid var(--border);
+  background: #fff; /* modo claro: fondo blanco o sin relleno visible */
+  border: 2px solid var(--border); /* contorno segun diseño */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,9 +124,91 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   display: block;
 }
 .dark-mode .logo-badge {
-  background: #3a3f5c;
-  border-color: #3a3f5c;
+  background: #23263a; /* modo oscuro: relleno #23263a */
+  border-color: #3a3f5c; /* mismo contorno que ya manejamos */
 }
+
+/* Evitar doble contorno del logo: el contorno lo maneja solo .logo-badge */
+.pagu-logo-box { background: transparent !important; border: none !important; }
+.dark-mode .pagu-logo-box { background: transparent !important; border: none !important; }
+
+/* Botón de menú en header */
+.header-menu-btn {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: #fff;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+}
+.header-menu-btn:hover { filter: brightness(0.98); }
+.dark-mode .header-menu-btn { background: #2d3146; border-color: #3a3f5c; color: #fff; }
+
+/* Sidebar (barra lateral) */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.sidebar-overlay.open { opacity: 1; pointer-events: auto; }
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 320px;
+  max-width: 86vw;
+  background: var(--surface);
+  border-left: 2px solid var(--muted-border);
+  box-shadow: -6px 0 24px rgba(0,0,0,0.15);
+  transform: translateX(100%);
+  transition: transform .24s ease;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-panel.open { transform: translateX(0); }
+.dark-mode .sidebar-panel { background: #2d3146; border-left-color: #3a3f5c; }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--muted-border);
+}
+.sidebar-title { font-weight: 700; color: var(--primary); }
+.dark-mode .sidebar-title { color: #fff; }
+.sidebar-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--primary);
+}
+.dark-mode .sidebar-close-btn { color: #fff; }
+
+.sidebar-content { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+.sidebar-item {
+  padding: 10px 12px;
+  border: 1px solid var(--muted-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+}
+.sidebar-item:hover { filter: brightness(0.98); }
+.dark-mode .sidebar-item { background: #23283b; border-color: #3a3f5c; color: #fff; }
 
 /* Unificación de botones y componentes (modo claro) */
 .btn-principal, .pagu-bottom-btn {
@@ -121,6 +227,19 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
 }
 .btn-principal:hover, .pagu-bottom-btn:hover, .btn-secundario:hover, .favoritos-bottom-btn:hover, .pagu-news-btn:hover, .coment-bottom-btn:hover {
   filter: brightness(0.95);
+}
+
+/* Tamaño ligeramente reducido para botones */
+.btn-principal,
+.btn-secundario,
+.favoritos-bottom-btn,
+.pagu-bottom-btn,
+.pagu-news-btn,
+.coment-bottom-btn,
+.perfil-bottom-btn,
+.header-menu-btn {
+  font-size: 0.95rem !important;
+  padding: 0.55rem 1rem !important;
 }
 
 /* Botón de menú en headers (todas las páginas) */

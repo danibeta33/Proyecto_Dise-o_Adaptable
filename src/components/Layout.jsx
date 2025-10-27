@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import hoverSoundSrc from '../imgs/hoverSound.wav';
 import clickSoundSrc from '../imgs/clicSound.wav';
 import ULogo from '../imgs/U.png';
+import useAuthStore from '../store/authStore';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
   const hoverAudio = useRef(null);
   const clickAudio = useRef(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const userType = useAuthStore((s) => s.userType);
 
   useEffect(() => {
     // Crear elementos Audio y preparar para reproducción
@@ -17,6 +20,10 @@ export default function Layout({ children }) {
     // Permitir que se reproduzca rápidamente sin retrasos
     hoverAudio.current.preload = 'auto';
     clickAudio.current.preload = 'auto';
+
+    // Volúmenes más bajos
+    if (hoverAudio.current) hoverAudio.current.volume = 0.2;
+    if (clickAudio.current) clickAudio.current.volume = 0.25;
 
     // Handlers por delegación de eventos
     const handleMouseOver = (e) => {
@@ -57,16 +64,42 @@ export default function Layout({ children }) {
   }, []);
   return (
     <div>
-      <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 50, display:'flex', alignItems:'center', padding:'8px 12px', borderBottom:'2px solid #393e4c', background:'#fff'}}>
-        <div className="pagu-header-col pagu-header-col-left">
+      <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 60, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 12px', borderBottom:'2px solid #393e4c', background:'#fff'}}>
+        <div className="pagu-header-col pagu-header-col-left" style={{display:'flex', alignItems:'center'}}>
           <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>
             <div className="logo-badge" aria-label="Inicio / Perfil">
               <img src={ULogo} alt="Logo U" loading="lazy" />
             </div>
           </div>
         </div>
+        <div className="pagu-header-col pagu-header-col-right" style={{display:'flex', alignItems:'center', gap:'8px'}}>
+          <button className="header-menu-btn" aria-label="Abrir menú" onClick={() => setSidebarOpen(true)}>
+            ☰
+          </button>
+        </div>
       </header>
       {children}
+
+      {/* Sidebar Overlay */}
+      <div
+        className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`}
+        onClick={() => setSidebarOpen(false)}
+      />
+      {/* Sidebar Panel */}
+      <aside className={`sidebar-panel ${sidebarOpen ? 'open' : ''}`} aria-hidden={!sidebarOpen}>
+        <div className="sidebar-header">
+          <div className="sidebar-title">Menú</div>
+          <button className="sidebar-close-btn" aria-label="Cerrar" onClick={() => setSidebarOpen(false)}>×</button>
+        </div>
+        <div className="sidebar-content">
+          {userType === 'perfil' && (
+            <div className="sidebar-item" onClick={() => { setSidebarOpen(false); navigate('/perfil'); }}>Perfil</div>
+          )}
+          <div className="sidebar-item">Opción 2</div>
+          <div className="sidebar-item">Opción 3</div>
+          <div className="sidebar-item">Opción 4</div>
+        </div>
+      </aside>
     </div>
   );
 }

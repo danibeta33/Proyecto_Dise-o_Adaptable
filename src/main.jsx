@@ -11,6 +11,7 @@ import PagU from './pages/PagU';
 import Comentarios from './pages/Comentarios';
 import useDarkModeStore from './store/darkModeStore';
 import DarkModeButton from './components/DarkModeButton';
+import InicioSesion from './pages/InicioSesion';
 
 function Main() {
   const initializeDarkMode = useDarkModeStore((state) => state.initializeDarkMode);
@@ -52,12 +53,13 @@ function Main() {
     <StrictMode>
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Busqueda />} />
+          <Route path="/" element={<InicioSesion />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/busqueda" element={<Busqueda />} />
           <Route path="/pagu" element={<PagU />} />
           <Route path="/comentarios" element={<Comentarios />} />
           <Route path="/favoritos" element={<Favoritos />} />
+          <Route path="/inicio" element={<InicioSesion />} />
         </Routes>
         <DarkModeButton />
       </HashRouter>
