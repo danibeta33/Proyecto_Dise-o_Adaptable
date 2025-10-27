@@ -6,6 +6,13 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
+  /* Paleta unificada (modo claro) */
+  --bg: #e9ecf3;
+  --surface: #ffffff;
+  --primary: #23263a; /* azul oscuro de referencia */
+  --accent: #d13c5a;  /* rosado de referencia */
+  --border: #23263a;
+  --muted-border: #bfc5d2;
 }
 
 /* Links */
@@ -74,6 +81,75 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
   }
 }
 
+/* Insignia del logo (cuadro redondeado) */
+.logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px; /* cuadro redondeado */
+  background: var(--primary);
+  border: 2px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 #23263a14;
+}
+.logo-badge img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+.dark-mode .logo-badge {
+  background: #3a3f5c;
+  border-color: #3a3f5c;
+}
+
+/* Unificación de botones y componentes (modo claro) */
+.btn-principal, .pagu-bottom-btn {
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  border: none !important;
+}
+.btn-secundario, .favoritos-bottom-btn, .pagu-news-btn, .coment-bottom-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  border: none !important;
+}
+.btn-principal:hover, .pagu-bottom-btn:hover, .btn-secundario:hover, .favoritos-bottom-btn:hover, .pagu-news-btn:hover, .coment-bottom-btn:hover {
+  filter: brightness(0.95);
+}
+
+/* Botón de menú en headers (todas las páginas) */
+.pagu-header-menu-btn, .perfil-header-menu-btn, .busqueda-header-menu-btn, .coment-header-menu-btn, .favoritos-header-menu-btn {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+
+/* Inputs coherentes con referencia */
+.favoritos-search-input, .perfil-input, .perfil-desc-textarea, input[type="text"], textarea {
+  border: 2px solid var(--muted-border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--primary);
+}
+.favoritos-search-input:focus, .perfil-input:focus, .perfil-desc-textarea:focus, input[type="text"]:focus, textarea:focus {
+  outline: 2px solid var(--primary);
+  border-color: var(--primary);
+  background: #f6f8fc;
+}
+
+/* Tarjetas con borde/fondo consistentes */
+.border-dashed {
+  border-color: var(--border) !important;
+  background: #f6f8fc !important;
+}
+
 /* Modo oscuro (copiado de las reglas existentes) */
 .dark-mode, body.dark-mode, #root.dark-mode { background-color: #23283b !important; color: #fff !important; }
 .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6, .dark-mode .pagu-title, .dark-mode .pagu-section-title, .dark-mode .coment-title { color: #fff !important; }
@@ -99,4 +175,4 @@ button:focus, button:focus-visible { outline: 4px auto -webkit-focus-ring-color;
 .dark-mode .pagu-chip.selected, .dark-mode .pagu-chip:hover { background: #d13c5a !important; color: #fff !important; border-color: #d13c5a !important; }
 
 /* Mantener reglas de modo claro como placeholders si se usan clases */
-.body.dark-mode, #root.dark-mode { background-color: #23283b; color: #e3e6f0; }
+body.dark-mode, #root.dark-mode { background-color: #23283b; color: #e3e6f0; }

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import hoverSoundSrc from '../imgs/hoverSound.wav';
 import clickSoundSrc from '../imgs/clicSound.wav';
+import ULogo from '../imgs/U.png';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
@@ -56,26 +57,16 @@ export default function Layout({ children }) {
   }, []);
   return (
     <div>
-      <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 50}}>
+      <header className="pagu-header" style={{position: 'sticky', top: 0, zIndex: 50, display:'flex', alignItems:'center', padding:'8px 12px', borderBottom:'2px solid #393e4c', background:'#fff'}}>
         <div className="pagu-header-col pagu-header-col-left">
-          <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>Logo</div>
-        </div>
-        <div className="pagu-header-center-col">
-          <div className="pagu-header-center"></div>
-        </div>
-        <div className="pagu-header-col pagu-header-col-right">
-          <button className="pagu-header-menu-btn" aria-label="Menú lateral" onClick={() => navigate('/busqueda')}>
-            <svg width="32" height="32" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="4" y1="6" x2="20" y2="6"/>
-              <line x1="4" y1="12" x2="20" y2="12"/>
-              <line x1="4" y1="18" x2="20" y2="18"/>
-            </svg>
-          </button>
+          <div className="pagu-logo-box" style={{cursor:'pointer'}} onClick={() => navigate('/perfil')}>
+            <div className="logo-badge" aria-label="Inicio / Perfil">
+              <img src={ULogo} alt="Logo U" loading="lazy" />
+            </div>
+          </div>
         </div>
       </header>
-      <main className="container">
-        {children}
-      </main>
+      {children}
     </div>
   );
 }

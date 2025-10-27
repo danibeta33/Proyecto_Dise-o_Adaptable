@@ -35,13 +35,7 @@ export default function Busqueda() {
   return (
     <Layout>
       <div className="busqueda-main-container container">
-        {/* Menu */}
-        <div className="busqueda-menu-bar">
-          <button className="busqueda-header-menu-btn">
-            <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
-            <span>Menu</span>
-          </button>
-        </div>
+        {/* Menu eliminado a solicitud */}
 
         {/* Search bar y filtros */}
         <div className="busqueda-bar-section">

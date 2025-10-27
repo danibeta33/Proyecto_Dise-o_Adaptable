@@ -10,14 +10,9 @@ export default function Favoritos() {
 	const navigate = useNavigate();
 	return (
 		<Layout>
-			<div className="min-h-screen bg-white border-4 border-[#393e4c] rounded-xl flex flex-col favoritos-main-container container">
+			<div className="min-h-screen flex flex-col favoritos-main-container container">
 				{/* Menu */}
-				<div className="w-full bg-[#e9ecf3] flex justify-center items-center py-3 border-b border-[#393e4c]">
-					<button className="favoritos-header-menu-btn" onClick={() => navigate('/busqueda')}>
-						<svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
-						<span>Menu</span>
-					</button>
-				</div>
+				{/* Barra de menú eliminada a solicitud */}
 
 				{/* Search */}
 				<div className="px-6 pt-6">

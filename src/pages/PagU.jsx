@@ -33,14 +33,8 @@ export default function PagU() {
 
   return (
     <Layout>
-      <div className="pagu-main-container container">
-        {/* Menu */}
-        <div className="pagu-menu-bar">
-          <button className="pagu-header-menu-btn" onClick={() => navigate('/busqueda')}>
-            <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
-            <span>Menu</span>
-          </button>
-        </div>
+      <div className="pagu-main-container">
+        {/* Menú eliminado a solicitud */}
 
         {/* Chips de filtros */}
         <div className="pagu-chips-row flex flex-wrap gap-2">

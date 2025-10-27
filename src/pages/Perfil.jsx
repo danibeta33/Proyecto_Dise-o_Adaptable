@@ -8,15 +8,9 @@ export default function Perfil() {
   const navigate = useNavigate();
   return (
     <Layout>
-      <div className="perfil-main-container container">
+      <div className="perfil-main-container">
         <div className="perfil-content-wrapper">
-          {/* Menu */}
-          <div className="perfil-menu-bar">
-            <button className="perfil-header-menu-btn" onClick={() => navigate('/busqueda')}>
-              <svg width="28" height="28" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="12" x2="17" y2="12"/><line x1="3" y1="16" x2="17" y2="16"/></svg>
-              <span>Menu</span>
-            </button>
-          </div>
+          {/* Menú eliminado a solicitud */}
 
           {/* Fondo gris claro */}
           <div className="perfil-content-bg">
